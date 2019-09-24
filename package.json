@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --config webpack.config.js"
+    "dev": "webpack-dev-server --progress --config build/webpack.dev.conf.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +15,10 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
+    "node-notifier": "^6.0.0",
+    "portfinder": "^1.0.24",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
