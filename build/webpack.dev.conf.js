@@ -32,7 +32,6 @@ const devWebpackConf = merge(baseWebpackConf, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ]
 });

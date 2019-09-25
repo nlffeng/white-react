@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 
 import App from './containers/App';
 
+import './index.scss';
+
 const MOUNT_NODE = document.getElementById('react-root');
 
 const render = () => {
