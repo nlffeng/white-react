@@ -3,14 +3,16 @@
  */
 
 import React from 'react';
+import './index.less';
 
 function App() {
-  console.log(111);
+  console.log('App');
+
   return (
-    <div>
+    <div className="app-container">
       App
     </div>
-  )
+  );
 }
 
 export default App;

@@ -1,37 +1,25 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('webpack-merge');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
 const notifier = require('node-notifier');
 const pkg = require('./../package.json');
+const baseWebpackConf = require('./webpack.base.conf');
 
 const pathResolve = (relativePath) => path.resolve(__dirname, '..', relativePath);
 
-const devWebpackConf = {
+const devWebpackConf = merge(baseWebpackConf, {
   mode: 'development',
-  entry: pathResolve('./src/index.js'),
   output: {
     path: pathResolve('dist'),
-    filename: '[hash].bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '',
     chunkFilename: "[chunkhash].js",
   },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        include: pathResolve('./src'),
-        loader: 'babel-loader',
-      }
-    ]
-  },
-  resolve: {
-    extensions: [".js", ".jsx"],
-  },
   devtool: 'cheap-module-source-map',
   devServer: {
-    clientLogLevel: 'none',
+    clientLogLevel: 'warning',
     compress: true,
     hot: true,
     inline: true,
@@ -44,13 +32,10 @@ const devWebpackConf = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/index.html',
-      inject: true
-    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ]
-};
+});
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = devWebpackConf.devServer.port;
@@ -77,6 +62,7 @@ module.exports = new Promise((resolve, reject) => {
       },
     }));
 
+    devWebpackConf.devServer.port = port;
     resolve(devWebpackConf);
   });
 });
