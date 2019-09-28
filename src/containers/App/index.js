@@ -3,14 +3,15 @@
  */
 
 import React from 'react';
-import './index.less';
+import Test from '../../components/Test';
+
+import './index.scss';
 
 function App() {
-  console.log('App');
-
   return (
     <div className="app-container">
       App
+      <Test />
     </div>
   );
 }

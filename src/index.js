@@ -5,9 +5,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './containers/App';
-
 import './index.scss';
+
+import App from './containers/App';
 
 const MOUNT_NODE = document.getElementById('react-root');
 

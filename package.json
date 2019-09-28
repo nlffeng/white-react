@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --config build/webpack.dev.conf.js"
+    "dev": "webpack-dev-server --progress --config build/webpack.dev.conf.js",
+    "build": "webpack --progress --config build/webpack.prod.conf.js",
+    "hash-build": "npm run build",
+    "version-build": "npm run build --isVersion",
+    "analysis-hash-build": "npm run build --report",
+    "analysis-version-build": "npm run build --report --isVersion"
   },
   "author": "",
   "license": "ISC",
@@ -17,8 +22,10 @@
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
     "eslint": "^6.4.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-friendly-formatter": "^4.0.1",
@@ -33,8 +40,9 @@
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "node-notifier": "^6.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "portfinder": "^1.0.24",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
@@ -42,6 +50,7 @@
     "style-loader": "^1.0.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.40.2",
+    "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
     "webpack-merge": "^4.2.2"

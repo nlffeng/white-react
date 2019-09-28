@@ -1,11 +1,10 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-
-const pathResolve = (relativePath) => path.resolve(__dirname, '..', relativePath);
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { pathResolve, generateName } = require('./utils');
 
 module.exports = {
-  entry: pathResolve('./src/index.js'),
+  entry: {
+    main: pathResolve('./src/index.js')
+  },
   module: {
     rules: [
       {
@@ -24,37 +23,11 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader',
-        ],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.less$/,
-        use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader',
-          'less-loader',
-        ],
-      },
-      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/img/[name].[contenthash].[ext]'
+          name: generateName('img', '[ext]')
         }
       },
       {
@@ -62,7 +35,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/media/[name].[contenthash].[ext]'
+          name: generateName('media', '[ext]')
         }
       },
       {
@@ -70,7 +43,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/fonts/[name].[contenthash].[ext]'
+          name: generateName('fonts', '[ext]')
         }
       }
     ]
@@ -79,11 +52,6 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/index.html',
-      inject: true
-    }),
     new CopyWebpackPlugin([
       {
         from: pathResolve('static'),
