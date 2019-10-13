@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 const { pathResolve, generateName } = require('./utils');
 
 module.exports = {
@@ -58,6 +59,9 @@ module.exports = {
         to: 'static',
         ignore: ['.*']
       }
-    ])
+    ]),
+    new StylelintPlugin({
+      emitWarning: true,
+    }),
   ]
 }
