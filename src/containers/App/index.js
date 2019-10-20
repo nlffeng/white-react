@@ -16,7 +16,7 @@ import saga from './saga';
 import Home from '../Home/Loadable';
 import NotFoundPage from '../NotFoundPage';
 
-function App() {
+export function App() {
   return (
     <Switch>
       <Redirect exact from="/" to="home" />
