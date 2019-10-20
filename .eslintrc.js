@@ -10,6 +10,8 @@ module.exports = {
   },
   env: {
     browser: true,
+    node: true,
+    jest: true,
   },
   extends: [
     'standard',
@@ -25,6 +27,9 @@ module.exports = {
   },
   rules: {
     semi: ['error', 'always'],
-    'space-before-function-paren': ['error', 'never']
+    'space-before-function-paren': ['error', 'never'],
+    'generator-star-spacing': ['error', { before: false, after: true }],
+    'comma-dangle': ['error', 'always-multiline'],
+    'operator-linebreak': ['error', 'after'],
   }
 }

@@ -54,7 +54,7 @@ const prodWebpackConf = merge(baseWebpackConf, {
     }),
     // 原模块单独打包成闭包，该插件可将ES6模块提升到一个闭包中，需将babel中的modules选项置为false
     new webpack.optimize.ModuleConcatenationPlugin(),
-    // 该插件回根据模块的相对路径生成一个四位数的hash作为模块id
+    // 该插件会根据模块的相对路径生成一个四位数的hash作为模块id
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       filename: pathResolve('dist/index.html'),
@@ -96,8 +96,6 @@ if (process.env.npm_config_isVersion) {
   delete prodWebpackConf.optimization.runtimeChunk;
   delete prodWebpackConf.optimization.splitChunks;
 }
-
-console.log(prodWebpackConf.optimization);
 
 // `npm run build --report` 将会开启服务，查看构建包信息
 if (process.env.npm_config_report) {

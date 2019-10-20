@@ -4,6 +4,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter as Router } from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import store from './configureStore';
 
 import './index.scss';
 
@@ -13,7 +17,11 @@ const MOUNT_NODE = document.getElementById('react-root');
 
 const render = () => {
   ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>,
     MOUNT_NODE
   );
 };
