@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run dev",
     "dev": "webpack-dev-server --progress --config build/webpack.dev.conf.js",
     "build": "webpack --progress --config build/webpack.prod.conf.js",
     "build:hash": "npm run build",
@@ -96,7 +97,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.6.2",
-    "@loadable/component": "^5.10.3",
     "core-js": "^3.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

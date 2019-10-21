@@ -2,8 +2,9 @@
  * Asynchronously loads the component for Home
  */
 
-import loadable from '@loadable/component';
+import loadableComponent from '../../utils/loadableComponent';
 
-export default loadable(() => import(/* webpackChunkName: "Home" */'./index.js'), {
-  fallback: 'loading...',
-});
+export default loadableComponent(
+  () => import(/* webpackChunkName: "Home" */'./index.js'),
+  'loading...'
+);
