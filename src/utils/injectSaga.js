@@ -10,7 +10,7 @@ export default ({ key, saga }) => (WrappedComponent) => {
   class SagaInject extends React.Component {
     static propTypes = {
       store: PropTypes.object.isRequired,
-      children: PropTypes.node.isRequired,
+      children: PropTypes.element.isRequired,
     };
 
     constructor(props) {
