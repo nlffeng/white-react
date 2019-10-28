@@ -57,5 +57,5 @@ npm run test:clean // 清除测试生成的覆盖率文件
 npm run test:watch // 启动监听文件更改，更改时重新运行测试
 ```
 
-### git 提交
+## git 提交
 git 提交前将会校验并修复 eslint 和 stylelint，还会运行所有测试，校验不通过会阻止 git 提交
