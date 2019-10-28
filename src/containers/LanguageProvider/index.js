@@ -18,7 +18,7 @@ function LanguageProvider(props) {
   } = props;
 
   return (
-    <IntlProvider locale={locale} messages={translationMessages[locale]}>
+    <IntlProvider key={locale} locale={locale} messages={translationMessages[locale]}>
       {React.Children.only(children)}
     </IntlProvider>
   );
