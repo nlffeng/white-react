@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const baseWebpackConf = require('./webpack.base.conf');
 const { pathResolve } = require('./utils');
 
@@ -58,6 +59,13 @@ const devWebpackConf = merge(baseWebpackConf, {
     port: 3000,
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: pathResolve('mocks'),
+        to: 'mocks',
+        ignore: ['.*']
+      }
+    ]),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({

@@ -31,5 +31,10 @@ module.exports = {
     'generator-star-spacing': ['error', { before: false, after: true }],
     'comma-dangle': ['error', 'always-multiline'],
     'operator-linebreak': ['error', 'after'],
+    'space-before-function-paren': ['error', {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always",
+    }],
   }
 }
