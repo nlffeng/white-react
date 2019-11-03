@@ -3,8 +3,9 @@
 ### 工程介绍
 基于 React 全家桶搭建的工程化方案，该工程集成 路由、数据管理、国际化、Axios 为一体，旨在方便一键搭起 Web单页应用。
 
-#### 建设配置
+#### 工程 features
 - react-router-dom，以 React Suspense 和 lazy 组件实现路由懒加载
+- hash 路由，通过引入 src/core/history.js 在任意代码中实现编程导航；组件导航使用 Link 或 Navlink 等
 - redux、react-redux、redux-saga
   - 应用 saga 处理业务异步逻辑
   - 动态注入 reducer 和 saga
