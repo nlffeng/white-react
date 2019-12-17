@@ -8,11 +8,11 @@ export default function loadableComponent(lazyFunc, fallback) {
   // 该组件是动态加载的
   const LazyComponent = React.lazy(lazyFunc);
 
-  const suspense = () => (
+  const Suspense = (props) => (
     <React.Suspense fallback={fallback}>
-      <LazyComponent />
+      <LazyComponent {...props} />
     </React.Suspense>
   );
 
-  return suspense;
+  return Suspense;
 }
