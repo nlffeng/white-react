@@ -28,7 +28,7 @@ const render = () => {
         </Router>
       </LanguageProvider>
     </Provider>,
-    MOUNT_NODE
+    MOUNT_NODE,
   );
 };
 

@@ -40,5 +40,5 @@ const withConnect = connect(mapStateToProps, null);
 
 export default compose(
   withReducer,
-  withConnect
+  withConnect,
 )(LanguageProvider);

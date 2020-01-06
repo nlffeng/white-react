@@ -26,7 +26,7 @@ function configureStore(preloadedState) {
   const store = createStore(
     createReducer(),
     preloadedState,
-    enhancer
+    enhancer,
   );
 
   store.runSaga = sagaMiddleware.run;
