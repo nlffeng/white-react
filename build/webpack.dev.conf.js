@@ -57,6 +57,7 @@ const devWebpackConf = merge(baseWebpackConf, {
     },
     quiet: true,
     port: 3000,
+    open: true,
   },
   plugins: [
     new CopyWebpackPlugin([

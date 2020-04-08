@@ -15,7 +15,6 @@ module.exports = {
         loader: 'eslint-loader',
         options: {
           formatter: require('eslint-friendly-formatter'),
-          emitError: true,
         },
       },
       {

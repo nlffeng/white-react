@@ -27,10 +27,10 @@ export default ({ key, reducer }) => (WrappedComponent) => {
   function ReducerInjector(props) {
     return (
       <ReactReduxContext.Consumer>
-        {({ storeState, store }) => {
+        {({ store }) => {
           return (
             <ReducerInject store={store}>
-              {[key] in storeState ? <WrappedComponent {...props} /> : null}
+              <WrappedComponent {...props} />
             </ReducerInject>
           );
         }}

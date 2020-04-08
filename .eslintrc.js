@@ -26,7 +26,7 @@ module.exports = {
     }
   },
   rules: {
-    semi: ['error', 'always'],
+    semi: ['warn', 'always'],
     'space-before-function-paren': ['error', 'never'],
     'generator-star-spacing': ['error', { before: false, after: true }],
     'comma-dangle': ['error', 'always-multiline'],

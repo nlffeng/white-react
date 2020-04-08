@@ -1,6 +1,9 @@
 .app-not-found-page {
-  padding-top: 15%;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 18px;
 
   .code {
