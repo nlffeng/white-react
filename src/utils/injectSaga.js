@@ -3,43 +3,21 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ReactReduxContext } from 'react-redux';
+import store from '../configureStore';
 
 export default ({ key, saga }) => (WrappedComponent) => {
-  class SagaInject extends React.Component {
-    static propTypes = {
-      store: PropTypes.object.isRequired,
-      children: PropTypes.element.isRequired,
-    };
-
+  return class SagaInject extends React.PureComponent {
     constructor(props) {
       super(props);
-      const { store } = props;
       store.injectSaga(key, saga);
     }
 
     componentWillUnmount() {
-      const { store } = this.props;
       store.ejectSaga(key);
     }
 
     render() {
-      return this.props.children;
+      return <WrappedComponent {...this.props} />;
     }
-  }
-
-  return function SagaInjector(props) {
-    return (
-      <ReactReduxContext.Consumer>
-        {({ store }) => {
-          return (
-            <SagaInject store={store}>
-              <WrappedComponent {...props} />
-            </SagaInject>
-          );
-        }}
-      </ReactReduxContext.Consumer>
-    );
   };
 };
