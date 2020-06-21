@@ -6,9 +6,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 
-import { Provider } from 'react-redux';
-import store from './configureStore';
-
 import history from './core/history';
 
 import LanguageProvider from './containers/LanguageProvider';
@@ -21,13 +18,11 @@ const MOUNT_NODE = document.getElementById('react-root');
 
 const render = () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <LanguageProvider>
-        <Router history={history}>
-          <App />
-        </Router>
-      </LanguageProvider>
-    </Provider>,
+    <LanguageProvider>
+      <Router history={history}>
+        <App />
+      </Router>
+    </LanguageProvider>,
     MOUNT_NODE,
   );
 };

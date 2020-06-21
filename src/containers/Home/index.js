@@ -2,19 +2,22 @@
  * Home(首页)
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 // import PropTypes from 'prop-types';
-import { getUserInfo } from '../../service/home';
+import { useDynamicInject, useModel } from 'white-react-state';
+import model from './model';
 
 import './index.scss';
 
-function Home(props) {
-  const [userInfo, setUserInfo] = useState({});
+function Home() {
+  useDynamicInject(model);
+
+  const [state, dispatchers] = useModel('homeModel');
+  const { userInfo } = state;
+  const { getUserInfo } = dispatchers || {};
 
   useEffect(() => {
-    getUserInfo().then((res) => {
-      setUserInfo(res.data);
-    });
+    getUserInfo();
   }, []);
 
   return (
